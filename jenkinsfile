@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('w/o docker') {
+            steps {
+                sh 'echo "Running without Docker"'
+            }
+        }
+        stage('w/ docker') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh '''
+                echo "Running inside Docker"
+                node --version
+                npm --version
+                '''
+            }
+        }
+    }
+}
