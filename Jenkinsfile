@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                npm install netlify-cli
+                npm install -g netlify-cli
                 netlify status
                 '''
             }
@@ -43,7 +43,6 @@ pipeline {
 
      post {
         always {
-
              junit 'test-results/junit.xml'
             cleanWs()
         }
