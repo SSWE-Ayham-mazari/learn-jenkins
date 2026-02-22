@@ -6,6 +6,9 @@ pipeline {
             reuseNode true
         }
     }
+    environment {
+        NETLIFY_SITE_ID = '45646fda-ca4b-4eda-8403-8f3936a123ac'
+    }
     stages {
         stage('Checkout') {
             steps {
@@ -27,11 +30,20 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Deploy') {
+            steps {
+                sh '''
+                npm install netlify-cli
+                npx netlify deploy --prod --dir=dist --site=$NETLIFY_SITE_ID
+                '''
+            }
+        }
     }
 
      post {
         always {
-            junit 'test-results/junit.xml'
+
+             junit 'test-results/junit.xml'
             cleanWs()
         }
     }
