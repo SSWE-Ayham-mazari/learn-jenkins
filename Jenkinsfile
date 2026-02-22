@@ -40,7 +40,7 @@ pipeline {
                 sh '''
                 npm install netlify-cli
                 npx netlify status
-                npx netlify deploy --dir=build --prod
+                npx netlify deploy --dir=build --prod --message "Deploy from Jenkins - Build #${BUILD_NUMBER}"
                 '''
             }
         }
