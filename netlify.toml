@@ -1,0 +1,8 @@
+[build]
+  command = "echo 'Build handled by Jenkins pipeline'"
+  publish = "build"
+
+[context.production]
+  command = "echo 'Build handled by Jenkins pipeline'"
+  publish = "build"
+
