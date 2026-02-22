@@ -21,21 +21,25 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'npm test'
+        stage('Build and Test') {
+            parallel {
+                stage('Build') {
+                    steps {
+                        sh 'npm run build'
+                    }
+                }
+                stage('Test') {
+                    steps {
+                        sh 'npm test'
+                    }
+                }
             }
         }
         stage('Deploy') {
             steps {
                 sh '''
-                npm install -g netlify-cli
-                netlify status
+                npm install netlify-cli
+                npx netlify status
                 '''
             }
         }
