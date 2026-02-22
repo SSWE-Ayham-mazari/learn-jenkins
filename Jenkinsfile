@@ -40,7 +40,7 @@ pipeline {
                 sh '''
                 npm install netlify-cli
                 npx netlify status
-                npx netlify deploy --prod --dir=build --functions=build/functions
+                npx netlify deploy --dir=build --prod
                 '''
             }
         }
