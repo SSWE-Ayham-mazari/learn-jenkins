@@ -40,6 +40,7 @@ pipeline {
                 sh '''
                 npm install netlify-cli
                 npx netlify status
+                npx netlify deploy --prod --dir=build --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
                 '''
             }
         }
