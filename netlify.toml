@@ -1,0 +1,8 @@
+[build]
+  command = ""
+  publish = "build"
+
+[context.production]
+  command = ""
+  publish = "build"
+
