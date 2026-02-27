@@ -12,7 +12,7 @@ test.describe('Page Structure Tests', () => {
   test('has Jenkins in the body', async ({ page }) => {
     await page.goto('/');
 
-    const isVisible = await page.locator('a:has-text("ayham")').isVisible();
+    const isVisible = await page.locator('a:has-text("Learn Jenkins on Udemy")').isVisible();
     expect(isVisible).toBeTruthy();
   });
 
@@ -46,15 +46,15 @@ test.describe('Link and Navigation Tests', () => {
   test('Learn Jenkins link should be visible and have correct text', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     await expect(link).toBeVisible();
-    await expect(link).toHaveText('ayham');
+    await expect(link).toHaveText('Learn Jenkins on Udemy');
   });
 
   test('Learn Jenkins link should have correct href attribute', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     const href = await link.getAttribute('href');
     expect(href).toBeTruthy();
   });
@@ -62,7 +62,7 @@ test.describe('Link and Navigation Tests', () => {
   test('external links should open in new tab', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     const target = await link.getAttribute('target');
     const rel = await link.getAttribute('rel');
 
@@ -176,7 +176,7 @@ test.describe('Accessibility Tests', () => {
   test('links should be keyboard accessible', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     await link.focus();
 
     // Check if element is focused
@@ -245,7 +245,7 @@ test.describe('CSS and Styling Tests', () => {
   test('links should have hover state', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     const initialColor = await link.evaluate(el => {
       return window.getComputedStyle(el).color;
     });
@@ -337,7 +337,7 @@ test.describe('Interaction Tests', () => {
   test('page should handle rapid clicks gracefully', async ({ page }) => {
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
 
     // Rapid clicks shouldn't break the page
     for (let i = 0; i < 5; i++) {
@@ -435,7 +435,7 @@ test.describe('Browser Compatibility Tests', () => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto('/');
 
-    const link = await page.locator('a:has-text("ayham")');
+    const link = await page.locator('a:has-text("Learn Jenkins on Udemy")');
     await link.tap();
 
     // Link should still be accessible after tap
