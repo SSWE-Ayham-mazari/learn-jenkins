@@ -56,37 +56,37 @@ describe('App Component - Logo Tests', () => {
 describe('App Component - Link Tests', () => {
   test('renders Udemy link with correct text', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toBeInTheDocument();
   });
 
   test('link has correct href attribute', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toHaveAttribute('href', 'https://example.com');
   });
 
   test('link opens in new tab', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toHaveAttribute('target', '_blank');
   });
 
   test('link has security attributes', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
   test('link has correct CSS class', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toHaveClass('App-link');
   });
 
   test('link is clickable', async () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toBeEnabled();
   });
 });
@@ -122,7 +122,7 @@ describe('App Component - Structure Tests', () => {
   test('header contains link', () => {
     const { container } = render(<App />);
     const header = container.querySelector('.App-header');
-    const link = within(header).getByText('Learn Jenkins on Udemy');
+    const link = within(header).getByText('ayham');
     expect(link).toBeInTheDocument();
   });
 
@@ -142,7 +142,7 @@ describe('App Component - Accessibility Tests', () => {
 
   test('link is keyboard accessible', () => {
     render(<App />);
-    const link = screen.getByRole('link', { name: /Learn Jenkins on Udemy/i });
+    const link = screen.getByRole('link', { name: /ayham/i });
     expect(link).toBeInTheDocument();
   });
 
@@ -175,7 +175,7 @@ describe('App Component - Content Tests', () => {
 
   test('renders multiple text elements', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     const version = screen.getByText(/Application version/i);
     expect(link).toBeInTheDocument();
     expect(version).toBeInTheDocument();
@@ -203,7 +203,7 @@ describe('App Component - CSS Classes', () => {
 
   test('link has App-link class', () => {
     render(<App />);
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     expect(link).toHaveClass('App-link');
   });
 });
@@ -214,7 +214,7 @@ describe('App Component - Integration Tests', () => {
     const app = container.querySelector('.App');
     const header = container.querySelector('.App-header');
     const logo = screen.getByAltText('logo');
-    const link = screen.getByText('Learn Jenkins on Udemy');
+    const link = screen.getByText('ayham');
     const version = screen.getByText(/Application version/i);
 
     expect(app).toBeInTheDocument();
